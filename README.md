@@ -46,7 +46,138 @@ make skull:yousef:flash
 
 ## Keymap
 
-See [keyboards/skull/keymaps/yousef/keymap.c](keyboards/skull/keymaps/yousef/keymap.c) for the full layout with ASCII art diagrams.
+The keymap has 5 layers. Held thumb keys and a held `Z`/`;` switch layers; all other holds on the top row produce modifiers (home row mods). See [keyboards/skull/keymaps/yousef/keymap.c](keyboards/skull/keymaps/yousef/keymap.c) for the source.
+
+Legend used below:
+- `X/Mod` — tap for `X`, hold for `Mod` (home row mod)
+- `X/Ln` — tap for `X`, hold to activate layer `n` (layer-tap)
+- `Esc/Hyper` — tap `Esc`, hold for Hyper (`Ctrl+Shift+Alt+Cmd`)
+- `Rct*` — Rectangle.app macOS window-management shortcut
+- `___` — transparent (falls through to the base layer)
+- `▓▓▓` — the key that activates this layer (held)
+
+### Layer 0 — Base (QWERTY + home row mods)
+
+```
+┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
+│Q/Alt│W/Sft│E/Ctl│R/Gui│  T  │       │  Y  │U/Gui│I/Ctl│O/Sft│P/Alt│
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│  A  │  S  │  D  │  F  │  G  │       │  H  │  J  │  K  │  L  │;/L4 │
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│Z/L1 │  X  │  C  │  V  │  B  │       │  N  │  M  │  ,  │  .  │  /  │
+└─────┴─────┴─────┴─────┴─────┘       └─────┴─────┴─────┴─────┴─────┘
+                  ┌─────┐                   ┌─────┐
+                  │Bs/L2├─────┐       ┌─────┤Sp/L3│
+                  └─────┤Esc/H│       │ Ent ├─────┘
+                        └─────┘       └─────┘
+```
+
+- Top row letters double as home row mods on hold: `Q/W/E/R` → `Alt/Shift/Ctrl/Gui`, `U/I/O/P` → `Gui/Ctrl/Shift/Alt`. Tap behavior is unchanged.
+- `Z` (tap) / Media-Nav layer (hold).
+- `;` (tap) / Right-hand mods layer (hold).
+- Left inner thumb: `Backspace` (tap) / Numbers layer (hold).
+- Left outer thumb: `Esc` (tap) / Hyper = `Ctrl+Shift+Alt+Cmd` (hold).
+- Right inner thumb: `Space` (tap) / Symbols layer (hold).
+- Right outer thumb: `Enter`.
+- Brackets, parens, braces, and Caps Lock are reached via Vial-configured combos rather than dedicated keys.
+
+### Layer 1 — Media / Navigation (hold `Z`)
+
+```
+┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
+│Bri- │Bri+ │Prev │Play │Next │       │Vol- │Mute │Vol+ │     │  \  │
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│     │     │     │RctFL│     │       │ ←   │  ↓  │  ↑  │  →  │  '  │
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│▓▓▓▓▓│Shift│RctCE│     │     │       │RctLH│RctBH│RctTH│RctRH│  `  │
+└─────┴─────┴─────┴─────┴─────┘       └─────┴─────┴─────┴─────┴─────┘
+                  ┌─────┐                   ┌─────┐
+                  │     ├─────┐       ┌─────┤RctMV│
+                  └─────┤Space│       │RctEN├─────┘
+                        └─────┘       └─────┘
+```
+
+- Top row, left hand: display brightness down/up, then media transport (Prev / Play-Pause / Next).
+- Top row, right hand: volume down / mute / volume up, plus `\`.
+- Home row, right hand: vim-style arrows on `H J K L`, with `'` on `;`.
+- `RctFL` maximizes the focused window (Rectangle's fullscreen-without-spaces).
+- Bottom row right hand: Rectangle halves — `LH` left, `BH` bottom, `TH` top, `RH` right — plus `` ` ``.
+- `RctCE` centers the window. Bottom-left `Shift` is reachable while the layer is held.
+- Right thumbs: `RctEN` (maximize) and `RctMV` (move window to next display). Left inner thumb produces a literal `Space` while the layer is held.
+
+### Layer 2 — Numbers (hold left inner thumb / `Backspace`)
+
+```
+┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
+│  1  │2/Sft│3/Ctl│4/Gui│  5  │       │  6  │7/Gui│8/Ctl│9/Sft│  0  │
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│  =  │  -  │  '  │Ctl+B│     │       │     │     │     │     │     │
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│ MO1 │     │     │     │     │       │     │     │  ,  │  .  │     │
+└─────┴─────┴─────┴─────┴─────┘       └─────┴─────┴─────┴─────┴─────┘
+                  ┌─────┐                   ┌─────┐
+                  │▓▓▓▓▓├─────┐       ┌─────┤RAlt │
+                  └─────┤Space│       │ Ent ├─────┘
+                        └─────┘       └─────┘
+```
+
+- Number row across the top with the same home-row-mod pattern as the base layer (`2/3/4` → `Shift/Ctrl/Gui`, `7/8/9` → `Gui/Ctrl/Shift`).
+- Middle row left: math/punct cluster — `=`, `-`, `'`, plus `Ctrl+B` (tmux prefix).
+- Bottom-left holds `MO(_MEDIA_NAV)` so you can chain into Layer 1 without releasing Backspace.
+- Right hand keeps `,` and `.` in their home positions for numeric entry.
+- Right outer thumb: `RAlt` (useful for Option-modified shortcuts while typing numbers).
+
+### Layer 3 — Symbols (hold right inner thumb / `Space`)
+
+```
+┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
+│  !  │  @  │  #  │  $  │  %  │       │  ^  │  &  │  *  │  (  │  -  │
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│     │     │  {  │  [  │  (  │       │  )  │  ]  │  }  │     │  =  │
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│     │     │     │     │     │       │     │     │     │     │     │
+└─────┴─────┴─────┴─────┴─────┘       └─────┴─────┴─────┴─────┴─────┘
+                  ┌─────┐                   ┌─────┐
+                  │     ├─────┐       ┌─────┤▓▓▓▓▓│
+                  └─────┤     │       │     ├─────┘
+                        └─────┘       └─────┘
+```
+
+- Top row, left hand: shifted number row (`! @ # $ %`).
+- Top row, right hand: `^ & * (` plus `-`.
+- Middle row pairs openers and closers mirrored across the split so `{ [ (` on the left line up with `) ] }` on the right; `=` lives under `;`.
+- Bottom row is mostly empty — placeholder space if you want to add custom shortcuts.
+
+### Layer 4 — Right-hand mods (hold `;`)
+
+```
+┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
+│ Tab │     │     │     │     │       │     │     │     │     │     │
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│     │     │     │     │     │       │     │ Cmd │ Ctl │Shift│▓▓▓▓▓│
+├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
+│     │     │     │     │     │       │     │     │     │     │     │
+└─────┴─────┴─────┴─────┴─────┘       └─────┴─────┴─────┴─────┴─────┘
+                  ┌─────┐                   ┌─────┐
+                  │     ├─────┐       ┌─────┤     │
+                  └─────┤     │       │     ├─────┘
+                        └─────┘       └─────┘
+```
+
+- Provides plain (non-tap-hold) right-hand modifiers on `J K L` (`Cmd / Ctrl / Shift`) for cases where holding a home row mod would mis-fire.
+- `Tab` is exposed in the top-left as a low-cost reach while the right thumb is busy.
+- Everything else is transparent — pressing a base-layer key still types the base character.
+
+### Eye RGB
+
+The two eye sockets each have 3 LEDs synced across the split. Custom keycodes are exposed to Vial:
+
+- `EY_TOGG` — toggle eyes on/off
+- `EY_HUE` — step hue
+- `EY_SAT` — step saturation
+- `EY_VAL` — step value (brightness)
+
+State is mirrored to the slave half via the `USER_SYNC_A` split RPC and persisted to EEPROM, so it survives reboots. Map these in the Vial GUI wherever you want them.
 
 ## Hardware
 
