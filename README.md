@@ -123,7 +123,7 @@ Legend used below:
 
 - Number row across the top with the same home-row-mod pattern as the base layer (`2/3/4` → `Shift/Ctrl/Gui`, `7/8/9` → `Gui/Ctrl/Shift`).
 - Middle row left: math/punct cluster — `=`, `-`, `'`, plus `Ctrl+B` (tmux prefix).
-- Middle row right: vim-style arrows on `J K L ;`.
+- Middle row right: vim-style arrows on `J K L ;`. Hold either `Shift` home-row mod to select text, the right-thumb `Alt`/`Option` to move by word, or both to select by word.
 - Bottom-left holds `MO(_MEDIA_NAV)` so you can chain into Layer 1 without releasing Backspace.
 - Right hand keeps `,` and `.` in their home positions for numeric entry.
 - Right outer thumb: `RAlt` (useful for Option-modified shortcuts while typing numbers).
