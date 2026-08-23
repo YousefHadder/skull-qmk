@@ -115,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
      * │  1  │2/Sft│3/Ctl│4/Gui│  5  │       │  6  │7/Gui│8/Ctl│9/Sft│  0  │
      * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-     * │  =  │  -  │  '  │Ctl+B│     │       │     │     │     │     │     │
+     * │  =  │  -  │  '  │Ctl+B│     │       │     │  ←  │  ↑  │  ↓  │  →  │
      * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
      * │ MO1 │     │     │     │     │       │     │     │  ,  │  .  │     │
      * └─────┴─────┴─────┴─────┴─────┘       └─────┴─────┴─────┴─────┴─────┘
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_NUMBERS] = LAYOUT_split_3x5_2(
         KC_1,    LSFT_T(KC_2), LCTL_T(KC_3), LGUI_T(KC_4), KC_5,                KC_6,    RGUI_T(KC_7), RCTL_T(KC_8), RSFT_T(KC_9), KC_0,
-        KC_EQL,  KC_MINS,      KC_QUOT,      LCTL(KC_B),   _______,             XXXXXXX, XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
+        KC_EQL,  KC_MINS,      KC_QUOT,      LCTL(KC_B),   _______,             XXXXXXX, KC_LEFT,      KC_UP,        KC_DOWN,      KC_RGHT,
         MO(_MEDIA_NAV), _______, _______,    _______,      _______,             XXXXXXX, XXXXXXX,      KC_COMM,      KC_DOT,       XXXXXXX,
                                              _______,      KC_SPC,     KC_ENT,  KC_RALT
     ),
@@ -137,20 +137,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
      * │  !  │  @  │  #  │  $  │  %  │       │  ^  │  &  │  *  │  (  │  -  │
      * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-     * │     │     │  {  │  [  │  (  │       │  )  │  ]  │  }  │     │  =  │
+     * │Caps │     │  {  │  [  │  (  │       │  )  │  ]  │  }  │     │  =  │
      * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-     * │BT 0 │BT 1 │BT 2 │BT 3 │BT 4 │       │     │     │     │     │     │
+     * │     │     │     │     │     │       │     │     │     │     │     │
      * └─────┴─────┴─────┴─────┴─────┘       └─────┴─────┴─────┴─────┴─────┘
      *                   ┌─────┐                   ┌─────┐
      *                   │     ├─────┐       ┌─────┤█████│
      *                   └─────┤     │       │     ├─────┘
      *                         └─────┘       └─────┘
-     *
-     * Note: BT keys are placeholders - Skull is wired, not wireless
      */
     [_SYMBOLS] = LAYOUT_split_3x5_2(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_MINS,
-        XXXXXXX, XXXXXXX, KC_LCBR, KC_LBRC, KC_LPRN,                            KC_RPRN, KC_RBRC, KC_RCBR, XXXXXXX, KC_EQL,
+        KC_CAPS,  XXXXXXX, KC_LCBR, KC_LBRC, KC_LPRN,                            KC_RPRN, KC_RBRC, KC_RCBR, XXXXXXX, KC_EQL,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                            XXXXXXX, _______, _______, _______, XXXXXXX,
                                             XXXXXXX, _______,         _______,  _______
     ),

@@ -79,7 +79,7 @@ Legend used below:
 - Left outer thumb: `Esc` (tap) / Hyper = `Ctrl+Shift+Alt+Cmd` (hold).
 - Right inner thumb: `Space` (tap) / Symbols layer (hold).
 - Right outer thumb: `Enter`.
-- Brackets, parens, braces, and Caps Lock are reached via Vial-configured combos rather than dedicated keys.
+- Brackets, parens, and braces are reached via Vial-configured combos. Caps Lock is available through both a thumb-key combo and Layer 3.
 
 ### Layer 1 — Media / Navigation (hold `Z`)
 
@@ -111,7 +111,7 @@ Legend used below:
 ┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
 │  1  │2/Sft│3/Ctl│4/Gui│  5  │       │  6  │7/Gui│8/Ctl│9/Sft│  0  │
 ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-│  =  │  -  │  '  │Ctl+B│     │       │     │     │     │     │     │
+│  =  │  -  │  '  │Ctl+B│     │       │     │  ←  │  ↑  │  ↓  │  →  │
 ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
 │ MO1 │     │     │     │     │       │     │     │  ,  │  .  │     │
 └─────┴─────┴─────┴─────┴─────┘       └─────┴─────┴─────┴─────┴─────┘
@@ -123,6 +123,7 @@ Legend used below:
 
 - Number row across the top with the same home-row-mod pattern as the base layer (`2/3/4` → `Shift/Ctrl/Gui`, `7/8/9` → `Gui/Ctrl/Shift`).
 - Middle row left: math/punct cluster — `=`, `-`, `'`, plus `Ctrl+B` (tmux prefix).
+- Middle row right: vim-style arrows on `J K L ;`.
 - Bottom-left holds `MO(_MEDIA_NAV)` so you can chain into Layer 1 without releasing Backspace.
 - Right hand keeps `,` and `.` in their home positions for numeric entry.
 - Right outer thumb: `RAlt` (useful for Option-modified shortcuts while typing numbers).
@@ -133,7 +134,7 @@ Legend used below:
 ┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
 │  !  │  @  │  #  │  $  │  %  │       │  ^  │  &  │  *  │  (  │  -  │
 ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-│     │     │  {  │  [  │  (  │       │  )  │  ]  │  }  │     │  =  │
+│Caps │     │  {  │  [  │  (  │       │  )  │  ]  │  }  │     │  =  │
 ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
 │     │     │     │     │     │       │     │     │     │     │     │
 └─────┴─────┴─────┴─────┴─────┘       └─────┴─────┴─────┴─────┴─────┘
@@ -146,6 +147,7 @@ Legend used below:
 - Top row, left hand: shifted number row (`! @ # $ %`).
 - Top row, right hand: `^ & * (` plus `-`.
 - Middle row pairs openers and closers mirrored across the split so `{ [ (` on the left line up with `) ] }` on the right; `=` lives under `;`.
+- `Caps Lock` is available on `A`.
 - Bottom row is mostly empty — placeholder space if you want to add custom shortcuts.
 
 ### Layer 4 — Right-hand mods (hold `;`)
@@ -178,6 +180,12 @@ The two eye sockets each have 3 LEDs synced across the split. Custom keycodes ar
 - `EY_VAL` — step value (brightness)
 
 State is mirrored to the slave half via the `USER_SYNC_A` split RPC and persisted to EEPROM, so it survives reboots. Map these in the Vial GUI wherever you want them.
+
+## Vial layout backup
+
+The current Vial layout, combos, and dynamic settings are stored in
+[`keyboards/skull/keymaps/yousef/skull-layout.vil`](keyboards/skull/keymaps/yousef/skull-layout.vil).
+Use **File → Load Saved Layout** in Vial to restore it after flashing or resetting EEPROM.
 
 ## Hardware
 
